@@ -1,0 +1,86 @@
+body {
+  font-family: sans-serif;
+  background: gray;
+  margin: 2em;
+  text-align: center;
+}
+
+#header {
+  color: white;
+  background: #aa0000;
+  font-size: 12pt;
+  text-align: center;
+  padding: 0.05em;
+  margin-bottom: 0;
+  -moz-border-radius: 15px 15px 0 0;
+}
+
+#contents {
+  width: 50em;
+  margin: auto;
+  padding: 0 0 2px 0;
+  text-align: left;
+  /* border-width:  1px 1px 1px 1px;
+  border-color:  black;
+  border-style:  solid; */
+  background-color: #ddd;
+  color: #222;
+  -moz-border-radius: 15px;
+}
+
+#content h1 {
+  font-size: 18pt;
+}
+
+html fieldset {
+  background: #eee;
+  margin:1em;
+  text-align: left;
+}
+
+html legend {
+  color: white;
+  background-color: #aa0000;
+  padding: .4em 1em;
+  font-size: 14pt;
+  text-align: center;
+}
+
+.data {
+  background-color: #eee;
+  padding: 0 1em 1em 1em;
+  font-size: 11pt;
+}
+
+.listlevel1 {
+  font-size: 11pt;
+}
+
+.listlevel1 li {
+  font-size: 11pt;
+}
+
+.listlevel2 {
+  font-size: 10pt;
+  padding-top: 0;
+}
+
+.listlevel2 li {
+  font-size: 10pt;
+  margin-top: 2em;
+  padding-top: 0;
+}
+
+.listlevel3 {
+  font-size: 9pt;
+  padding-top: 0;
+}
+
+.listlevel3 li {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+table {
+   padding-top: 2em;
+}

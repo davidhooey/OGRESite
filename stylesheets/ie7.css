@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+  background: gray;
+  margin: 0;
+  text-align: center;
+}
+
+#header {
+  color: white;
+  background: #aa0000;
+  font-size: 16pt;
+  text-align: center;
+  padding: 0.05em;
+  margin-bottom: 2em;
+}
+
+#contents {
+  width: 50em;
+  margin: auto;
+  padding: 0 0 2px 0;
+  text-align: left;
+  border-width:  0 1px 1px 1px;
+  border-color:  black;
+  border-style:  solid;
+  background-color: #ddd;
+}
+
+#content h1 {
+  font-size: 18pt;
+}
+
+fieldset {
+  padding-top: 2em;
+  margin:1em;
+}
+
+legend {
+  margin-top: -3.3em;
+  height: 1em;
+}
+
+legend span {
+  position: relative;
+  top: -.1em;
+  height: 1.1em;
+}
+
+#iespacer {
+  margin: 2em;
+}
+

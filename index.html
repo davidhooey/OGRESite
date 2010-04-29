@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel=StyleSheet href="stylesheets/site.css" type="text/css" />
+        <!--[if lte IE 7]>
+        <link rel="stylesheet" href="stylesheets/ie7.css" type="text/css" />
+        <![endif]-->
+        <title>Ogre Oracle Database Server</title>
+    </head>
+    <body>
+        <div id="contents">
+            <div id="header">
+                <h1>Ogre Oracle Database Server</h1>
+            </div>
+            <fieldset>
+                <legend><span>Purpose</span></legend>
+                <div class="data">
+                    The server ogre.support.opentext.net is an Oracle 11g
+                    Release 2 database server available for those who need
+                    to use Content Server with Oracle. Below are instructions
+                    on how to configure the Oracle 11g Release 2 Instant
+                    Client on a Windows server for use with the Oracle
+                    instance on ogre.support.opentext.net.
+                </div>
+            </fieldset>
+            <div id="iespacer"></div>
+            <fieldset>
+                <legend><span>Instructions</span></legend>
+                <div class="data">
+                    <ul class="listlevel1">
+                        <li>
+                            <u><b>Installing the Oracle Instant Client</b></u>
+                            <ol class="listlevel2">
+                                <li>
+                                    Download the Oracle 11.2.0.1 Instant Client. Save the ZIP file to the root of the C:\.
+                                    Choose the 32-bit or 64-bit version depending on the Windows platform and Content Server
+                                    version being used.
+                                    <ul class="listlevel3">
+                                        <br />
+                                        <li><a href="files/instantclient-win-x86-32-11.2.0.1.0.zip">instantclient-win-x86-32-11.2.0.1.0.zip</a></li>
+                                        <li><a href="files/instantclient-win-x86-64-11.2.0.1.0.zip">instantclient-win-x86-64-11.2.0.1.0.zip</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Extract the ZIP using C:\ as the destination directory. The ZIP will extract to C:\instantclient_11_2\.
+                                </li>
+                                <li>
+                                    Add the Instant Client path (C:\instantclient_11_2) to the Windows system PATH environment variable.
+                                </li>
+                                <li>
+                                    Add a system environment variable called TNS_ADMIN which points to the C:\instantclient_11_2\ directory.
+                                </li>
+                                <li>
+                                    Test connectivity to the Oracle database on ogre.support.opentext.net by using SQL*Plus. Start a command
+                                    prompt and issue this command.
+                                    <pre>sqlplus otadmin/oracle@ogre</pre>
+                                </li>
+                                <li>
+                                    Reboot Windows.
+                                </li>
+                            </ol>
+                        </li>
+                        <li style="padding-top: 2em;"><u><b>Connect Content Server</b></u>
+                            <ol class="listlevel2">
+                                <li>
+                                    Install Content Server.
+                                </li>
+                                <li>
+                                    Go to the the administration page and select "Create New Database".
+                                    <table>
+                                        <tr><td><img src="images/02-02.jpg"></img></td></tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    Select "Oracle Server".
+                                    <table>
+                                        <tr><td><img src="images/02-03.jpg"></img></td></tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    To create a user to own the Content Server schema we need to login to Oracle with a user which has
+                                    the privileges to create users. A special user has been created for this purpose called OTADMIN.
+                                    Login using the following credentials. (NOTE: All users will use the USERS tablespace. We do not
+                                    need to create a tablespace for each Content Server schema.)
+                                    <table>
+                                        <!-- <tr><td align="right">System User Name:</td><td><b>otadmin</b></td></tr> -->
+                                        <!-- <tr><td align="right">Password:</td><td><b>oracle</b></td></tr> -->
+                                        <!-- <tr><td align="right">Service Name:</td><td><b>ogre</b></td></tr> -->
+                                        <tr><td><img src="images/02-04.jpg"></img></td></tr>
+                                    </table>
+
+                                </li>
+                                <li>
+                                    Select "Oracle Server Maintenance".
+                                </li>
+                                <li>
+                                    Select "Create New User". Please prepend the "User Name" with your Open Text domain account to avoid
+                                    conflicting usernames (i.e. davidh_cs10). Select USERS for the "Default Tablespace".
+                                    <table>
+                                        <tr><td><img src="images/02-06.jpg"></img></td></tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    Go back to the create tables page. Enter the username and password for the user you just created. Configure
+                                    external document storage if desired.
+                                    <table>
+                                        <tr><td><img src="images/02-07.jpg"></img></td></tr>
+                                    </table>
+                                </li>
+                            </ol>
+                        </li>
+                        <li style="padding-top: 2em;"><u><b>Oracle SQL Developer</b></u>
+                            <ol class="listlevel2">
+                                <li>
+                                    Choose the 32-bit or 64-bit version of Oracle SQL Developer depending on the Windows platform
+                                    being used. Ensure <a href="http://java.sun.com/javase/downloads/widget/jdk6.jsp">JDK 1.6.11</a>
+                                    or higher is installed.
+                                    <ul class="listlevel3">
+                                        <br />
+                                        <li><a href="files/sqldeveloper32-2.1.1.64.45.zip">sqldeveloper32-2.1.1.64.45.zip</a></li>
+                                        <li><a href="files/sqldeveloper64-2.1.1.64.45.zip">sqldeveloper64-2.1.1.64.45.zip</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Extract the ZIP using C:\ as the destination directory. The ZIP will extract to C:\sqldeveloper\.
+                                </li>
+                                <li>
+                                    Run C:\sqldeveloper\sqldeveloper.exe to start Oracle SQL Developer.
+                                </li>
+                                <li>
+                                    Click on the green plus button to add a new connection and specify the following to connect to the
+                                    new Content Server schema.
+                                    <table>
+                                        <!-- <tr><td align="right">Connection Name:</td><td><b>ogre(theCreatedUser)</b></td></tr> -->
+                                        <!-- <tr><td align="right">Username:</td><td><b>theCreatedUser</b></td></tr> -->
+                                        <!-- <tr><td align="right">Password:</td><td><b>passwordForTheCreatedUser</b></td></tr> -->
+                                        <!-- <tr><td align="right">Role:</td><td><b>default</b></td></tr> -->
+                                        <!-- <tr><td align="right">Connection Type:</td><td><b>Basic</b></td></tr> -->
+                                        <!-- <tr><td align="right">Hostname:</td><td><b>ogre.support.opentext.net</b></td></tr> -->
+                                        <!-- <tr><td align="right">Port:</td><td><b>1521</b></td></tr> -->
+                                        <!-- <tr><td align="right">Service name:</td><td><b>ogre.support.opentext.net</b></td></tr> -->
+                                        <tr><td><a href="images/03-04.jpg"><img src="images/03-04.jpg" border=0 width=75% height=75%></img></a></td></tr>
+                                    </table>
+                                </li>
+                                <li>
+                                    Click the "Test" button to test the connection. If successful click the "Save" button to save
+                                    the connection.
+                                    <table>
+                                        <tr><td><a href="images/03-05.jpg"><img src="images/03-05.jpg" border=0 width=75% height=75%></img></a></td></tr>
+                                    </table>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
+        </div>
+    </body>
+</html>
