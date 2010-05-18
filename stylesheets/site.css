@@ -84,3 +84,8 @@ html legend {
 table {
    padding-top: 2em;
 }
+
+.code {
+   font-family: courier;
+   font-weight:bold;
+}
